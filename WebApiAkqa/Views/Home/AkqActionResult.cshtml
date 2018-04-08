@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script>
+        ///Function for calling the NumberIntoWord WebAPI and Checking Validation
+        function CallWebAPI() {
+            if (formvalidation()) {
+                var username = $('#UserName').val();
+                var valuedev = $('#ValueDecimal').val();
+                var param = "username=" + username + "&priceDecimal=" + valuedev;
+                var request = new XMLHttpRequest();
+                request.open("get", "/api/NumberIntoWord/Calculate?" + param, false);
+                request.setRequestHeader("Content-type", "application/json");
+                request.send();
+                var obj = JSON.parse(request.responseText);
+                document.getElementById("result").innerHTML = obj.userName + ", " + obj.price;
+            }
+        }
+        function formvalidation() {
+            document.getElementById('UserNameError').style.display = "none";
+            document.getElementById('ValueDecimalError').style.display = "none";
+            var y = document.getElementById("UserName").value;
+            if (y === "") {
+                document.getElementById("UserNameError").innerHTML = "Please Enter User Name";
+                document.getElementById('UserNameError').style.display = "block";
+                return false;
+            }
+            var x = document.getElementById("ValueDecimal").value;
+            if ( x < 0 || x === "" || x === "0") {
+                document.getElementById("ValueDecimalError").innerHTML = "Please Enter a Valid Number";
+                document.getElementById('ValueDecimalError').style.display = "block";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body id="body">
+    <form name="myForm" method="post">
+        <h4>Enter User Details: </h4>
+        <hr />
+        <p>
+            Your name:
+        <input type="text" id="UserName" name="fUserName" />
+        <p style="color: red" id="UserNameError"></p>
+        </p>
+        <p>
+            Amount:
+            <input type="number" id="ValueDecimal" name="fValueDecimal" />
+            <p style="color: red" id="ValueDecimalError"></p>
+        </p>
+        <p>
+            <input type="button" value="Click" onclick="CallWebAPI();" />
+        </p>
+        <h4>WEB API Result : </h4>
+        <div id="result"></div>
+    </form>
+</body>
+</html>
