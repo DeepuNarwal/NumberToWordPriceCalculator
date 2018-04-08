@@ -9,10 +9,10 @@ namespace WebApiAkqaTests.Controllers
         public string Username = "Deepak";
 
         /// <summary>
-        /// Web API Test Method Positive Senerio : Price Value
+        /// Web API Test Method Senerio : Price Value
         /// </summary>
         [TestMethod()]
-        public void PositiveCalculateTestPrice()
+        public void CalculateTestPrice()
         {
             var price = 34.45;
             var expected = "Thirty Four dollor and Fourty Five Cents Only";
@@ -22,10 +22,10 @@ namespace WebApiAkqaTests.Controllers
         }
 
         /// <summary>
-        /// Web API Test Method Positive Senerio : Price Value Decimal only
+        /// Web API Test Method Senerio : Price Value Decimal only
         /// </summary>
         [TestMethod()]
-        public void PositiveCalculateTestPriceDecimalOnly()
+        public void CalculateTestPriceDecimalOnly()
         {
             var price = 00.45;
             var expected = "Fourty Five Cents Only";
@@ -35,10 +35,10 @@ namespace WebApiAkqaTests.Controllers
         }
 
         /// <summary>
-        /// Web API Test Method Positive Senerio : Price Value more than 2 number after decimal
+        /// Web API Test Method Senerio : Price Value more than 2 number after decimal
         /// </summary>
         [TestMethod()]
-        public void PositiveCalculateTestPriceAfterDecimal()
+        public void CalculateTestPriceAfterDecimal()
         {
             var price = 34.4534389323;
             var expected = "Thirty Four dollor and Fourty Five Cents Only";
@@ -48,10 +48,10 @@ namespace WebApiAkqaTests.Controllers
         }
 
         /// <summary>
-        /// Web API Test Method Positive Senerio User Name
+        /// Web API Test Method Senerio User Name
         /// </summary>
         [TestMethod()]
-        public void PositiveCalculateTestUserName()
+        public void CalculateTestUserName()
         {
             var price = 34.45;
             var expected = "Deepak";
@@ -61,52 +61,13 @@ namespace WebApiAkqaTests.Controllers
         }
 
         /// <summary>
-        /// Web API Test Method Negative Senerio User Name
+        /// Web API Test Method Senerio Zero
         /// </summary>
         [TestMethod()]
-        public void NegativeCalculateTestUserName()
+        public void CalculateTestZero()
         {
-            var price = 34.45;
-            var expected = "Deepak1";
-            var a = new NumberIntoWordController();
-            var akqamodel = a.Calculate(Username, price);
-            Assert.AreEqual<string>(expected, akqamodel.UserName);
-        }
-
-        /// <summary>
-        /// Web API Test Method Negative Senerio - Number
-        /// </summary>
-        [TestMethod()]
-        public void NegativeCalculateTestPrice()
-        {
-            var price = 34.45;
-            var expected = "34.45";
-            var a = new NumberIntoWordController();
-            var akqamodel = a.Calculate(Username, price);
-            Assert.AreEqual<string>(expected, akqamodel.PriceinWord);
-        }
-
-        /// <summary>
-        /// Web API Test Method Negative Senerio - ZERO
-        /// </summary>
-        [TestMethod()]
-        public void NegativeCalculateTestWithZero()
-        {
-            var price = 34.45;
-            var expected = "0";
-            var a = new NumberIntoWordController();
-            var akqamodel = a.Calculate(Username, price);
-            Assert.AreEqual<string>(expected, akqamodel.PriceinWord);
-        }
-
-        /// <summary>
-        /// Web API Test Method Negative Senerio - NEGATIVE VALUE
-        /// </summary>
-        [TestMethod()]
-        public void NegativeCalculateTestWithNegativeValue()
-        {
-            var price = 34.45;
-            var expected = "-23";
+            var price = 0.00;
+            var expected = "Please Enter Number above than 0.00";
             var a = new NumberIntoWordController();
             var akqamodel = a.Calculate(Username, price);
             Assert.AreEqual<string>(expected, akqamodel.PriceinWord);
