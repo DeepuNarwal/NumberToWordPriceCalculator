@@ -13,3 +13,9 @@ In this controller I’ve created a method "Calculate" which will execute when a u
 
 4. Test Case – A Test Case is also added name – NumberIntoWordControllerTests.cs which is under WebApiAkqaTests project
 FILE PATH - ..\WebApiAkqaTests\Controllers\NumberIntoWordControllerTests.cs
+
+
+
+TO RUN THE APPLICATION
+---------------------------------------
+PRESS F5
