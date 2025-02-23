@@ -1,7 +1,7 @@
-# AKQA
+
 Convert this number into words
 
-AKQA Currency to Word number Description
+Currency to Word number Description
 -----------------------------------------------------------------------
 1. Home Controller Method - AkqActionResult
 FILE PATH - ..\WebApiAkqa\Controllers\HomeController.cs
